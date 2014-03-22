@@ -1,0 +1,14 @@
+{
+	"paylocity": {
+		"company": "",
+		"username": "",
+		"password": "",
+		"baseUrl": "https://login.paylocity.com/Escher/Escher_WebUI/"
+	},
+	"httpServer": {
+		"port": 8080
+	},
+	"cache": {
+		"ttl": 86400000
+	}
+}
