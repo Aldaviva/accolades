@@ -1,16 +1,28 @@
 {
-	"name": "bravo",
-	"version": "0.0.1",
+	"name": "accolades",
+	"version": "1.0.0-SNAPSHOT",
 	"author": "Ben Hutchison <ben@bluejeans.com>",
 	"dependencies": {
 		"assert-plus"       : "0.1.5",
+		"body-parser"       : "1.0.1",
 		"bunyan"            : "0.22.1",
-		"cache-manager"     : "0.3.0",
+		"bunyan-middleware" : "0.0.1",
+		"cookie-parser"     : "1.0.1",
+		"express"           : "3.5.1",
+		"express-slash"     : "1.0.0",
+		"hbs"               : "2.5.0",
+		"less-middleware"   : "0.1.15",
 		"lodash"            : "2.4.1",
+		"mediator-js"       : "0.9.6",
+		"moment"            : "2.5.1",
+		"mongoose"          : "3.8.8",
+		"mongoose-q"        : "0.0.9",
+		"mongoose-moment"   : "git://github.com/aldaviva/mongoose-moment.git#8742dcb3e97972893033e5ffbc9fbceb89f37066",
+		"nodemailer"        : "0.6.1",
 		"panic"             : "0.2.1",
+		"passport-google"   : "0.3.0",
 		"pr-request2"       : "git://github.com/aldaviva/pr-request2.git#e714437d0abc58d645028231f095196c4c1ae911",
 		"q"                 : "1.0.1",
-		"restify"           : "2.6.3",
 		"underscore.string" : "2.3.3"
 	}
 }

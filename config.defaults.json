@@ -1,14 +1,18 @@
 {
-	"paylocity": {
-		"company": "",
-		"username": "",
-		"password": "",
-		"baseUrl": "https://login.paylocity.com/Escher/Escher_WebUI/"
+	"auth": {
+		"admins": []
+	},
+	"db": {
+		"url": "mongodb://localhost/accolades"
+	},
+	"floorplan": {
+		"baseUrl": ""
 	},
 	"httpServer": {
-		"port": 8080
+		"port": 8080,
+		"baseUrl": ""
 	},
-	"cache": {
-		"ttl": 86400000
+	"smtp": {
+		"host": ""
 	}
 }
