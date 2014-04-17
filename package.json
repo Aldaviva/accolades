@@ -17,7 +17,7 @@
 		"moment"            : "2.5.1",
 		"mongoose"          : "3.8.8",
 		"mongoose-q"        : "0.0.9",
-		"mongoose-moment"   : "git://github.com/aldaviva/mongoose-moment.git#8742dcb3e97972893033e5ffbc9fbceb89f37066",
+		"mongoose-moment"   : "0.0.1",
 		"nodemailer"        : "0.6.1",
 		"panic"             : "0.2.1",
 		"passport-google"   : "0.3.0",
