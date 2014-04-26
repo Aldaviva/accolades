@@ -4,18 +4,18 @@
 		<meta charset="utf-8" />
 		<title>Employee Recognition</title>
 
-		<link href="styles/all.css" rel="stylesheet" type="text/css" />
+		<link href="styles/dashboard.css" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
 
-		<div class="accolades">
+		<div class="dashboard">
 			<header>
 				<h1>Great job on that thing you did</h1>
 				<h2>Really super.</h2>
 			</header>
 
-			<div class="people">
+			<div class="accolades">
 
 			</div>
 
@@ -28,13 +28,13 @@
 		<script src="scripts/thirdparty/lodash.js"></script>
 		<script src="scripts/thirdparty/backbone.js"></script>
 		<script src="scripts/thirdparty/moment.js"></script>
-		<script src="scripts/data.js"></script>
-		<script src="scripts/AccoladeListView.js"></script>
-		<script src="scripts/AccoladePersonView.js"></script>
-		<script src="scripts/dashboard.js"></script>
+		<script src="scripts/common/data.js"></script>
+		<script src="scripts/dashboard/DashbaordAccoladeListView.js"></script>
+		<script src="scripts/dashboard/DashbaordAccoladeListItemView.js"></script>
+		<script src="scripts/dashboard/dashboard.js"></script>
 		<script>
 			var config = {{{config}}};
-			new Dashboard($('.accolades'));
+			new Dashboard($('.dashboard'));
 		</script>
 	</body>
 </html>

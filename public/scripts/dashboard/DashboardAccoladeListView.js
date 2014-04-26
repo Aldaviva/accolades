@@ -2,7 +2,7 @@
 
 	var MAX_LISTVIEW_LENGTH = 6;
 
-	var AccoladeListView = scope.AccoladeListView = Backbone.View.extend({
+	var DashboardAccoladeListView = scope.DashboardAccoladeListView = Backbone.View.extend({
 
 		initialize: function(){
 			_.bindAll(this);
@@ -32,7 +32,7 @@
 
 		addOne: function(model){
 			if(model.get('status') == 'approved'){
-				var accoladePersonView = new AccoladePersonView({ model: model });
+				var accoladePersonView = new DashboardAccoladeListItemView({ model: model });
 				this.$el.append(accoladePersonView.render());
 
 				model.views = model.views || {};

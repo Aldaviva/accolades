@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Admin - Employee Recognition</title>
+
+		<link href="styles/admin.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<div class="admin">
+			<header>
+				<h1>Employee Recognition</h1>
+				<nav>
+					<a class="add" href="add">Recognize someone</a>
+					<a class="dashboard" href="dashboard">Dashboard</a>
+					<a class="admin" href="admin" class="active">Admin</a>
+				</nav>
+				<div class="auth">
+					<img class="userProfilePhoto" />
+					<a href="logout">Log out</a>
+				</div>
+			</header>
+
+			<h2>
+				Approvals
+				<span class="pendingCount" title="Items requiring approval"></span>
+			</h2>
+
+			<button class="downloadReport">Download CSV</button>
+
+			<div class="accolades">
+				<div class="accolade">
+					<img class="photo" />
+					<div class="recipientName"></div>
+					<div class="messageAndByLine">
+						<div class="message"></div>
+						<div class="byLine">from <span class="fromName"></span> &bull; <span class="dateCreated"></span></div>
+					</div>
+					<div class="actions">
+						<button class="approve">Approve</button>
+						<button class="reject">Reject</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="scripts/thirdparty/jquery.js"></script>
+		<script src="scripts/thirdparty/lodash.js"></script>
+		<script src="scripts/thirdparty/backbone.js"></script>
+		<script src="scripts/thirdparty/moment.js"></script>
+		<script src="scripts/common/data.js"></script>
+		<script src="scripts/admin/AdminAccoladeListView.js"></script>
+		<script src="scripts/admin/AdminAccoladeListItemView.js"></script>
+		<script src="scripts/admin/admin.js"></script>
+		<script>
+			var config = {{{config}}};
+			new Admin($('.admin'));
+		</script>
+	</body>
+</html>

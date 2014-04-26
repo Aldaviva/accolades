@@ -2,9 +2,9 @@
 
 	var DATE_FORMAT = 'MMMM D';
 
-	var AccoladePersonView = scope.AccoladePersonView = Backbone.View.extend({
+	var DashboardAccoladeListItemView = scope.DashboardAccoladeListItemView = Backbone.View.extend({
 
-		className: 'person',
+		className: 'accolade',
 
 		initialize: function(){
 			_.bindAll(this);
