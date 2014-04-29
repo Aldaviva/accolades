@@ -5,8 +5,10 @@
 		this.el = el;
 
 		this.initAccoladeList();
-		this.initDownloadReportButton();
+		// this.initDownloadReportButton();
 		this.initPendingCount();
+
+		this.initLogoutButton();
 	};
 
 	Admin.prototype.initAccoladeList = function(){
@@ -20,13 +22,13 @@
 		this.accoladeCollection.fetch({ reset: true });
 	};
 
-	Admin.prototype.initDownloadReportButton = function(){
-		$('.downloadReport', this.el).click(_.bind(function(event){
-			var minDate = new Moment().minus(2, 'weeks').valueOf();
-			var maxDate = new Moment().valueOf();
-			window.location = this.accoladeCollection.url+'/accolades.csv?min_date='+minDate+'&max_date='+maxDate;
-		}, this));
-	};
+	// Admin.prototype.initDownloadReportButton = function(){
+	// 	$('.downloadReport', this.el).click(_.bind(function(event){
+	// 		var minDate = new Moment().minus(2, 'weeks').valueOf();
+	// 		var maxDate = new Moment().valueOf();
+	// 		window.location = this.accoladeCollection.url+'/accolades.csv?min_date='+minDate+'&max_date='+maxDate;
+	// 	}, this));
+	// };
 
 	Admin.prototype.initPendingCount = function(){
 		this.accoladeCollection.on('add remove change reset', _.bind(function(){
@@ -37,6 +39,22 @@
 				.text('('+pendingCount+')')
 				.toggle(!!pendingCount);
 		}, this));
+	};
+
+	Admin.prototype.initLogoutButton = function(){
+		var peopleApiUrl = Accolades.config.floorplan.baseUrl + '/people';
+
+		$.getJSON(peopleApiUrl, {
+				email: Accolades.user.email.replace(/@.*$/, '')
+			})
+			.done(_.bind(function(floorplanPeople){
+				var person = floorplanPeople[0];
+				var photoUrl = peopleApiUrl + '/' + person._id + '/photo';
+				$('.auth .userProfilePhoto').attr({
+					src: photoUrl,
+					title: "Logged in as " + person.fullname
+				});
+			}, this));
 	};
 
 })(this);

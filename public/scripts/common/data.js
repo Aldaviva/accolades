@@ -5,7 +5,7 @@
 	var FIRSTNAME_PATTERN = /^(\w+)/;
 	var FIRSTNAME_EXCEPTIONS = {
 		"Akshay Kumar Sridharan": "Akshay Kumar"
-	}
+	};
 
 	var Accolade = scope.Accolade = Backbone.Model.extend({
 		idAttribute: '_id',
@@ -20,7 +20,13 @@
 		},
 
 		getRecipientPhotoUrl: function(){
-			return config.floorplan.baseUrl + '/people/' + this.get('recipientId') + '/photo';
+			return Accolades.config.floorplan.baseUrl + '/people/' + this.get('recipientId') + '/photo';
+		},
+
+		validate: function(attr, opts){
+			if(attr.message !== undefined && attrs.message.length > 60){
+				return new Error("Message must be 60 characters or less.");
+			}
 		}
 	});
 

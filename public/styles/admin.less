@@ -1,0 +1,252 @@
+@import "reset.less";
+@import "definitions.less";
+@import "helpers.less";
+@import "fonts.less";
+
+body {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: hsl(0, 0%, 95%);
+}
+
+a {
+	color           : @blue;
+	text-decoration : none;
+
+	&:hover {
+		color: lighten(@blue, 8%);
+	}
+}
+
+.admin {
+	background    : white;
+	width: 972px;
+	/*display: inline-block;*/
+	min-height: 100%;
+	padding : 0 24px;
+	margin: 0 auto;
+
+	header {
+		display        : inline-block;
+		margin-top     : 28px;
+		position       : relative;
+		text-transform : uppercase;
+
+		h1 {
+			font          : 800 75px/54px "Hurme Geometric Sans";
+			height        : 54px;
+			margin-bottom : 28px;
+			opacity       : 0.8;
+			overflow-y    : hidden;
+		}
+
+		nav {
+			font           : 600 19px/13px "Hurme Geometric Sans";
+			margin-left    : -1px;
+			vertical-align : middle;
+
+			a {
+				padding: 4px 4px;
+
+				&.active, &.active:hover {
+					/*color: white;*/
+					/*background-color: @blue;*/
+					border-bottom: 3px solid @blue;
+				}
+
+				+ a {
+					margin-left: 24px;
+				}
+			}
+		}
+
+		.auth {
+			@auth_size : 24px;
+
+			background : hsla(0, 0%, 0%, 0.03);
+			font       : 600 12px/@auth_size "Hurme Geometric Sans";
+			height     : @auth_size;
+			position   : absolute;
+			right      : 0;
+			top        : 80px;
+
+			.userProfilePhoto {
+				height         : @auth_size;
+				vertical-align : bottom;
+				width          : @auth_size;
+			}
+
+			a {
+				padding        : 0 12px;
+				vertical-align : bottom;
+			}
+		}
+	}
+
+	.approvalsHeader {
+		position: relative;
+
+		h2 {
+			font           : bold 32px "Hurme Geometric Sans";
+			margin-left    : 29px;
+			margin-top     : 32px;
+			text-transform : uppercase;
+
+			.pendingCount {
+				color: @blue;
+			}
+		}
+
+		.downloadReport {
+			@height: 32px;
+
+			background     : hsla(0, 0%, 0%, 0.03);
+			font           : 600 15px/@height "Hurme Geometric Sans";
+			height         : @height;
+			padding        : 0 14px;
+			position       : absolute;
+			right          : 0;
+			text-transform : uppercase;
+			top            : 10px;
+		}
+	}
+
+	.accolades {
+		@accolade_height : 80px;
+
+		margin-left      : 29px;
+
+		.action(@label, @color, @icon){
+			background-color : @color;
+			background-image : ~"url(../images/@{icon})";
+			color            : @color;
+
+			&:hover {
+				background-color: lighten(@color, 5%);
+			}
+
+			span:before {
+				content: @label;
+			}
+		}
+
+		.passiveAction(@label){
+			@gray            : hsla(0, 0%, 0%, 0.15);
+
+			background-color : @gray;
+			color            : @gray;
+
+			span:before {
+				content: @label;
+			}
+
+			&:hover {
+				background-color: hsla(0, 0%, 0%, 0.2);
+
+				span:before {
+					content: 'undo';
+				}
+			}
+		}
+
+		.accolade {
+			margin-top: 30px;
+			height: @accolade_height;
+
+			&:hover {
+				background: hsla(0, 0%, 0%, 0.01);
+
+				.actions > a span {
+					display: block;
+				}
+			}
+
+			> div {
+				display        : inline-block;
+				vertical-align : top;
+			}
+
+			.photo {
+				height         : @accolade_height;
+				margin-right   : 42px;
+				vertical-align : top;
+				width          : @accolade_height;
+			}
+
+			.recipientName {
+				.ellipsis();
+				font         : 300 35px/@accolade_height "Brandon Grotesque";
+				margin-right : 30px;
+				width        : 165px;
+			}
+
+			.messageAndByLine {
+				/*margin-right: 120px;*/
+				width: 470px;
+				height: @accolade_height;
+
+				.message {
+					font          : 16px "Hurme Geometric Sans";
+					margin-bottom : 4px;
+					margin-top    : 21px;
+					opacity       : 0.75;
+				}
+
+				.byLine {
+					font           : bold 12px "Hurme Geometric Sans";
+					opacity        : 0.35;
+					text-transform : uppercase;
+				}
+			}
+
+			.actions {
+				@action_size: 38px;
+
+				float      : right;
+				margin-top : 18px;
+				text-align : right;
+
+				> a {
+					background-repeat : no-repeat;
+					display           : inline-block;
+					font              : bold 10px "Hurme Geometric Sans";
+					height            : @action_size;
+					margin-right      : 17px;
+					text-transform    : uppercase;
+					width             : @action_size;
+
+					span {
+						@fake_width: 8px;
+
+						display      : none;
+						margin-left  : -1 * @fake_width;
+						margin-right : -1 * @fake_width;
+						padding-top  : @action_size + 2px;
+						text-align   : center;
+					}
+				}
+
+				.approve {
+					.action('approve', @green, 'button_checkmark.png');
+				}
+
+				.reject {
+					.action('reject', @red, 'button_x.png');
+				}
+			}
+
+			&.approved .actions {
+				.reject { visibility: hidden; }
+				.approve { .passiveAction('approved'); }
+			}
+
+			&.rejected .actions {
+				.approve { visibility: hidden; }
+				.reject { .passiveAction('rejected'); }
+			}
+		}
+	}
+}

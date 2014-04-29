@@ -1,0 +1,96 @@
+@import "reset.less";
+@import "definitions.less";
+@import "helpers.less";
+@import "fonts.less";
+
+html {
+	min-height: 100%; //to prevent gradient clipping
+	background: white;
+}
+
+body {
+	//http://www.colorzilla.com/gradient-editor/#000000+0,000000+100&0.08+0,0+67;Custom
+	background: -moz-linear-gradient(top, hsla(0,0%,0%,0.08) 0%, hsla(0,0%,0%,0) 67%, hsla(0,0%,0%,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsla(0,0%,0%,0.08)), color-stop(67%,hsla(0,0%,0%,0)), color-stop(100%,hsla(0,0%,0%,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, hsla(0,0%,0%,0.08) 0%,hsla(0,0%,0%,0) 67%,hsla(0,0%,0%,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, hsla(0,0%,0%,0.08) 0%,hsla(0,0%,0%,0) 67%,hsla(0,0%,0%,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, hsla(0,0%,0%,0.08) 0%,hsla(0,0%,0%,0) 67%,hsla(0,0%,0%,0) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, hsla(0,0%,0%,0.08) 0%,hsla(0,0%,0%,0) 67%,hsla(0,0%,0%,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#14000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.dashboard {
+	margin: 0 160px;
+
+	header {
+		h1 {
+			font           : 800 75px/175px "Hurme Geometric Sans";
+			text-align     : center;
+			text-transform : uppercase;
+			opacity        : 0.8;
+		}
+
+		h2 {
+			display: none;
+		}
+	}
+
+	.accolades {
+		@gutter_width: 1.75%;
+
+		border-top: 1px solid hsla(0, 0%, 0%, 25%);
+
+		.accolade {
+			@accolade_height : 292px;
+			@photo_size      : 228px;
+			@photo_offset    : (@accolade_height - @photo_size) / 2;
+
+			border-top       : 1px solid hsla(0, 0%, 0%, 12.5%);
+			width            : 50% - @gutter_width/2;
+			height           : @accolade_height;
+			display          : inline-block;
+			position         : relative;
+
+			.photo {
+				width    : @photo_size;
+				height   : @photo_size;
+				top      : @photo_offset;
+				left     : @photo_offset;
+				position : absolute;
+			}
+
+			.recipientName, .message, .byLine {
+				margin-left: @photo_size + @photo_offset + 85px;
+				margin-right: @photo_offset;
+			}
+
+			.recipientName {
+				.ellipsis();
+
+				font       : 97px/142px "Brandon Grotesque Light";
+				margin-top : @photo_offset;
+			}
+
+			.message {
+				font    : 23px/25px "Hurme Geometric Sans";
+				opacity : 0.5;
+			}
+
+			.byLine {
+				font: bold 15px "Hurme Geometric Sans";
+				opacity: 0.2;
+				text-transform: uppercase;
+				margin-top: 6px;
+			}
+
+			&:nth-child(2n+1){
+				margin-right: @gutter_width;
+			}
+
+			&:nth-child(1),
+			&:nth-child(2){
+				border-top: none;
+			}
+		}
+	}
+}

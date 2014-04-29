@@ -1,5 +1,6 @@
 node_modules
-all.css
+# ignore .css files because they are all generated. source styles are all .less files.
+*.css
 ncore*
 *.sublime-*
 config.json

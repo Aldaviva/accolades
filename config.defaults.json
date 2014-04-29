@@ -10,7 +10,8 @@
 	},
 	"httpServer": {
 		"port": 8080,
-		"baseUrl": ""
+		"baseUrl": "",
+		"isProductionMode": true
 	},
 	"smtp": {
 		"host": ""

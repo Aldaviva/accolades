@@ -37,8 +37,8 @@
 						)
 					),
 					$('<div>', { class: 'actions' }).append(
-						$('<a>', { class: 'approve', href: '#', text: 'approve' }),
-						$('<a>', { class: 'reject',  href: '#', text: 'reject'  })
+						$('<a>', { class: 'approve', href: '#', /*text: 'approve'*/ }).append($('<span>')),
+						$('<a>', { class: 'reject',  href: '#', /*text: 'reject'*/  }).append($('<span>'))
 					)
 				);
 			}

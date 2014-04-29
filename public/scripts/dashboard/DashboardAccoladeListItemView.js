@@ -40,7 +40,7 @@
 			this.$('.dateCreated').text(new Moment(this.model.get('dateCreated')).format(DATE_FORMAT));
 
 			return this.el;
-		},
+		}
 	});
 
 })(this);
