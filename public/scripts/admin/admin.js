@@ -50,10 +50,10 @@
 			.done(_.bind(function(floorplanPeople){
 				var person = floorplanPeople[0];
 				var photoUrl = peopleApiUrl + '/' + person._id + '/photo';
-				$('.auth .userProfilePhoto').attr({
-					src: photoUrl,
-					title: "Logged in as " + person.fullname
-				});
+				$('.auth', this.el)
+					.attr('title', "Logged in as " + person.fullname)
+					.find('.userProfilePhoto')
+						.attr('src', photoUrl);
 			}, this));
 	};
 

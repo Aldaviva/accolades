@@ -93,4 +93,20 @@ body {
 			}
 		}
 	}
+
+	.toastMessage {
+		color      : white;
+		background : fade(@blue, 50%);
+		position   : fixed;
+		top        : 0;
+		left       : 0;
+		right      : 0;
+		font       : 600 25px/50px "Hurme Geometric Sans";
+		text-align : center;
+		cursor     : pointer;
+
+		&.warning, &.error {
+			background: fade(@red, 50%);
+		} 
+	}
 }

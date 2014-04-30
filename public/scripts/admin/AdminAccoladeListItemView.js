@@ -37,17 +37,22 @@
 						)
 					),
 					$('<div>', { class: 'actions' }).append(
-						$('<a>', { class: 'approve', href: '#', /*text: 'approve'*/ }).append($('<span>')),
-						$('<a>', { class: 'reject',  href: '#', /*text: 'reject'*/  }).append($('<span>'))
-					)
+						$('<a>', { class: 'approve', href: '#' }).append($('<span>')),
+						$('<a>', { class: 'reject',  href: '#' }).append($('<span>'))
+					),
+					$('<span>', { class: 'pendingBadge', title: 'This recognition is pending approval.' })
 				);
 			}
+
+			this.$el.attr('data-accolade-id', this.model.id);
 
 			this.$('.photo').attr({
 				src: this.model.getRecipientPhotoUrl(),
 				title: this.model.get('recipientName')
 			});
-			this.$('.recipientName').text(this.model.getFirstName());
+			this.$('.recipientName')
+				.text(this.model.getFirstName())
+				.attr('title', this.model.get('recipientName'));
 			this.$('.message').text(this.model.get('message'));
 			this.$('.fromName').text(this.model.get('fromName'));
 			this.$('.dateCreated').text(new Moment(this.model.get('dateCreated')).format(DATE_FORMAT));
