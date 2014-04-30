@@ -31,13 +31,18 @@
 		},
 
 		addOne: function(model){
-			if(model.get('status') == 'approved'){
-				var accoladePersonView = new DashboardAccoladeListItemView({ model: model });
-				this.$el.append(accoladePersonView.render());
+			var accoladePersonView = new DashboardAccoladeListItemView({ model: model });
+			accoladePersonView.render();
 
-				model.views = model.views || {};
-				model.views.accoladePersonView = accoladePersonView;
+			var sortedIndex = _.sortedIndex(this.collection.models, model, this.collection.comparator);
+			if(sortedIndex === 0){
+				this.$el.prepend(accoladePersonView.el);
+			} else {
+				this.$el.children().eq(sortedIndex - 1).after(accoladePersonView.el);
 			}
+
+			model.views = model.views || {};
+			model.views.accoladePersonView = accoladePersonView;
 		}
 	});
 

@@ -5,6 +5,7 @@
 		this.el = el;
 
 		this.initAccoladeList();
+		this.initSocketIO();
 		this.renderToastMessage();
 	};
 
@@ -16,12 +17,19 @@
 		});
 
 		accoladeListView.render();
-		this.accoladeCollection.fetch({ reset: true });
+		this.accoladeCollection.fetch({ reset: true, data: { status: 'approved' }});
+	};
 
-		//TODO maybe add push support
-		// setInterval(function(){
-		// 	accoladeCollection.fetch(); //may want to reset
-		// }, 15*1000);
+	Dashboard.prototype.initSocketIO = function() {
+		this.socket = io.connect(location.protocol+'//'+location.host);
+
+		this.socket.on('connect', function(){
+			console.log('socket.io connected');
+		});
+
+		this.socket.on('accolade:approved', _.bind(function(accolade){
+			this.accoladeCollection.add(accolade, { merge: true });
+		}, this));
 	};
 
 	Dashboard.prototype.renderToastMessage = function() {
