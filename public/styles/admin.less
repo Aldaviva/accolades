@@ -135,17 +135,18 @@ a {
 		}
 
 		.passiveAction(@label){
-			@gray            : hsla(0, 0%, 0%, 0.15);
+			@lighter_gray    : hsla(0, 0%, 0%, 0.15);
+			@darker_gray     : hsla(0, 0%, 0%, 0.25);
 
-			background-color : @gray;
-			color            : @gray;
+			background-color : @lighter_gray;
+			color            : @darker_gray;
 
 			span:before {
 				content: @label;
 			}
 
 			&:hover {
-				background-color: hsla(0, 0%, 0%, 0.2);
+				background-color: @darker_gray;
 
 				span:before {
 					content: 'undo';
@@ -256,7 +257,7 @@ a {
 
 			&.rejected {
 				.photo, .recipientName, .messageAndByLine {
-					opacity: 0.2;
+					opacity: 0.22;
 				}
 			}
 
