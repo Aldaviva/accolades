@@ -43,6 +43,14 @@
 
 			model.views = model.views || {};
 			model.views.accoladePersonView = accoladePersonView;
+
+			this.ensureMaxItemCount();
+		},
+
+		ensureMaxItemCount: function(){
+			while(this.$el.children().length > 6){
+				this.$el.children().last().remove();
+			}
 		}
 	});
 
