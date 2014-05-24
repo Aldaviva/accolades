@@ -41,9 +41,10 @@ body {
 		border-top: 1px solid hsla(0, 0%, 0%, 25%);
 
 		.accolade {
-			@accolade_height : 292px;
-			@photo_size      : 228px;
-			@photo_offset    : (@accolade_height - @photo_size) / 2;
+			@accolade_height  : 292px;
+			@photo_size       : 228px;
+			@photo_offset     : (@accolade_height - @photo_size) / 2;
+			@text_margin_left : @photo_size + @photo_offset + 85px;
 
 			border-top       : 1px solid hsla(0, 0%, 0%, 12.5%);
 			width            : 50% - @gutter_width/2;
@@ -61,15 +62,19 @@ body {
 			}
 
 			.recipientName, .message, .byLine {
-				margin-left: @photo_size + @photo_offset + 85px;
 				margin-right: @photo_offset;
+			}
+
+			.message, .byLine {
+				margin-left: @text_margin_left;
 			}
 
 			.recipientName {
 				.ellipsis();
 
-				font       : 97px/142px "Brandon Grotesque Light";
-				margin-top : @photo_offset;
+				font        : 97px/142px "Brandon Grotesque Light";
+				margin-left : @text_margin_left - 9px;
+				margin-top  : @photo_offset;
 			}
 
 			.message {

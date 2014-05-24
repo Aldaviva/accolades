@@ -4,3 +4,4 @@ node_modules
 ncore*
 *.sublime-*
 config.json
+.pid
