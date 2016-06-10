@@ -1,6 +1,6 @@
 {
 	"name": "accolades",
-	"version": "1.0.4-SNAPSHOT",
+	"version": "1.0.4",
 	"author": "Ben Hutchison <ben@bluejeans.com>",
 	"dependencies": {
 		"assert-plus"            : "0.1.5",

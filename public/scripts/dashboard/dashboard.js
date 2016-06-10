@@ -30,10 +30,6 @@
 		this.socket.on('accolade:approved', _.bind(function(accolade){
 			this.accoladeCollection.add(accolade, { merge: true });
 		}, this));
-
-		window.setTimeout(function(){
-			window.location.reload(true);
-		}, 5*60*1000);
 	};
 
 	Dashboard.prototype.renderToastMessage = function() {
