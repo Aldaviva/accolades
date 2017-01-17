@@ -25,7 +25,7 @@
 
 		validate: function(attr, opts){
 			if(attr.message !== undefined && attr.message.length > 70){
-				return new Error("Message must be 60 characters or less.");
+				return new Error("Message must be 70 characters or less.");
 			}
 		}
 	});
